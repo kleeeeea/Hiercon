@@ -1,0 +1,11 @@
+ipdb
+skorch
+rake-nltk
+summa
+
+# git+https://github.com/boudinfl/pke.git
+pyspotlight
+pathos
+seaborn==0.9.0
+torch
+torchvision
