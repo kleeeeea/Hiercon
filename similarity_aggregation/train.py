@@ -14,9 +14,10 @@ import pickle
 from collections import Counter
 import random
 from gensim.models import Word2Vec
-from tqdm import tqdm
-
+from tqdm import tqdms
+# TODO:xx
 DATA_ROOT = "./data/"
+
 
 parser = argparse.ArgumentParser("")
 parser.add_argument('arg1', nargs='?', default="cs", help="1st Positional arg")
@@ -46,7 +47,7 @@ MAX_DOCS_PER_LABEL = '10000'
 dataset = args.arg1
 tokenized_text = '/disk/home/klee/data/{}_merged_tokenized'.format(dataset)
 
-# embedding
+# embeddingpp
 supersequence_path = tokenized_text + '_superspan_sequence.json'
 model_save_path = supersequence_path + '_embedding.bin'
 dictionary_path = tokenized_text + "_dictionary.bin"
@@ -122,7 +123,7 @@ def train(opt):
     mydataset = MyDataset(superspan_HANsFile, superspan_HANs_labelsFile, label_namesFile, ImportanceFeatureMatsFile,
                           model_gensim, max_vocab, training_inds, childLabel2ParentLabelFile, None, dataset, descriptor_HANsFile, VvFile)
 
-    training_generator = DataLoader(mydataset, **training_params)
+    # training_generator = DataLoader(mydataset, **training_params)
     testing_inds = [i for i in range(len(mydataset.text_lines)) if i not in training_inds]
     if test_these_inds:
         testing_inds = test_these_inds
@@ -268,7 +269,7 @@ def train(opt):
                                           "accuracy", "top K accuracy", "top K tree score", "top K accuracy by class", "confusion_matrix"], childLabel2ParentLabel=mydataset.childLabel2ParentLabel, labels_list=mydataset.labels_list)
 
             with open(evaluationResultFile, 'w') as my_file:
-                print(str(test_metrics), file=my_file)
+                # print(str(test_metrics), file=my_file)
 
             pickle.dump(test_metrics, open(evaluationResultFile_bin, 'wb'))
             output_file.write(
