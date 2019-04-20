@@ -1,4 +1,4 @@
-# Concept relevance
+# Hiercon
 
 
 ## Requirements
