@@ -55,3 +55,5 @@ parser.add_argument("--test_interval", type=int, default=1,
 parser.add_argument("--log_path", type=str, default="tensorboard/han_voc")
 ```
 
+## Sample data
+A set of sample data containing all the intermediate results in order to run the prediction is available at Google drive
